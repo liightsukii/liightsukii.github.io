@@ -38,18 +38,28 @@ function filterProjects(searchValue) {
     });
 }
 
-function filterProjects(searchValue) {
-    const search = searchValue.trim().toLowerCase();
 
-    if (search === "") {
-        return [];
+function drawProjects(projectList) {
+    const container = document.querySelector("#project-list");
+
+    container.innerHTML = "";
+
+    if (projectList.length === 0) {
+        container.innerHTML = `
+            <p>No projects found. Try another keyword.</p>
+        `;
+        return;
     }
 
-    return projects.filter(function(project) {
-        return (
-            project.title.toLowerCase().includes(search) ||
-            project.category.toLowerCase().includes(search) ||
-            project.description.toLowerCase().includes(search)
-        );
+    projectList.forEach(function(project) {
+        const article = document.createElement("article");
+
+        article.innerHTML = `
+            <h3>${project.title}</h3>
+            <p><strong>${project.category}</strong></p>
+            <p>${project.description}</p>
+        `;
+
+        container.appendChild(article);
     });
 }
