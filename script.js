@@ -85,4 +85,5 @@ searchInput.addEventListener("input", function() {
     drawProjects(filteredProjects);
 });
 
+drawProjects(projects);
 
