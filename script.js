@@ -20,3 +20,36 @@ const projects = [
         description: "A personal website designed to practice creating modern layouts and interactive web pages."
     }
 ];
+
+
+function filterProjects(searchValue) {
+    const search = searchValue.trim().toLowerCase();
+
+    if (search === "") {
+        return [];
+    }
+
+    return projects.filter(function(project) {
+        return (
+            project.title.toLowerCase().includes(search) ||
+            project.category.toLowerCase().includes(search) ||
+            project.description.toLowerCase().includes(search)
+        );
+    });
+}
+
+function filterProjects(searchValue) {
+    const search = searchValue.trim().toLowerCase();
+
+    if (search === "") {
+        return [];
+    }
+
+    return projects.filter(function(project) {
+        return (
+            project.title.toLowerCase().includes(search) ||
+            project.category.toLowerCase().includes(search) ||
+            project.description.toLowerCase().includes(search)
+        );
+    });
+}
