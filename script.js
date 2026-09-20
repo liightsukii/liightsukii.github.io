@@ -63,3 +63,26 @@ function drawProjects(projectList) {
         container.appendChild(article);
     });
 }
+
+
+const searchInput = document.querySelector("#project-search");
+
+searchInput.addEventListener("input", function() {
+    const searchValue = searchInput.value;
+
+    if (searchValue.trim() === "") {
+        const container = document.querySelector("#project-list");
+
+        container.innerHTML = `
+            <p>Type a keyword above to search my projects.</p>
+        `;
+
+        return;
+    }
+
+    const filteredProjects = filterProjects(searchValue);
+
+    drawProjects(filteredProjects);
+});
+
+
